@@ -1,0 +1,44 @@
+{
+	"version": 3,
+	"configurePresets": [
+		{
+			"name": "base",
+			"hidden": true,
+			"generator": "Ninja",
+			"binaryDir": "${sourceDir}/build/${presetName}"
+		},
+		{
+			"name": "debug",
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "Debug",
+				"CMAKE_C_FLAGS": "-O0 -g3 -fsanitize=address,undefined -fno-omit-frame-pointer"
+			}
+		},
+		{
+			"name": "tsan",
+			"inherits": "base",
+			"cacheVariables": {
+				"CMAKE_BUILD_TYPE": "RelWithDebInfo",
+				"CMAKE_C_FLAGS": "-O1 -g -fsanitize=thread -fno-omit-frame-pointer"
+			}
+		},
+		{
+                        "name": "release",
+                        "inherits": "base",
+                        "cacheVariables": {
+                                "CMAKE_BUILD_TYPE": "Release",
+                                "CMAKE_C_FLAGS": "-O2 -g -DNDEBUG -fno-omit-frame-pointer"
+                        }
+                },
+		{
+                        "name": "native",
+                        "inherits": "base",
+                        "cacheVariables": {
+                                "CMAKE_BUILD_TYPE": "Release",
+                                "CMAKE_C_FLAGS": "-O2 -g -DNDEBUG -fno-omit-frame-pointer -march=native",
+				"CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
+                        }
+                }
+	]
+}
