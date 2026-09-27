@@ -40,5 +40,23 @@
 				"CMAKE_INTERPROCEDURAL_OPTIMIZATION": "ON"
                         }
                 }
+	],
+
+	"buildPresets": [
+		{ "name": "debug", "configurePreset": "debug" },
+		{ "name": "tsan", "configurePreset": "tsan" },
+		{ "name": "release", "configurePreset": "release" },
+		{ "name": "native", "configurePreset": "native" }
+
+	],
+
+	"testPresets": [
+		{
+			"name": "debug",
+			"configurePreset": "debug",
+			"output": { "outputOnFailure": true },
+			"execution": { "noTestsAction": "error" } 
+		}
+	
 	]
 }

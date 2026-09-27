@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.21)
 project(itch LANGUAGES C)
 
+enable_testing()
+
 set(CMAKE_C_STANDARD 17)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS OFF)
@@ -24,6 +26,9 @@ add_library(
 	src/mold.c src/pub.c src/source.c
 )
 
+add_test(NAME itch_cut_synthetic
+	COMMAND ${CMAKE_SOURCE_DIR}/tests/itch_cut/run_tests.sh $<TARGET_FILE:itch_cut>
+)
 target_include_directories(
 	itch
 	PUBLIC
