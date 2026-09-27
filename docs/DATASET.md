@@ -8,7 +8,9 @@
 | Source         | https://emi.nasdaq.com/ITCH/Nasdaq%20PSX%20ITCH/20191230.PSX_ITCH_50.gz|
 | Compressed     | `20191230.PSX_ITCH_50.gz` (507MB)                                      |
 | Raw            | `20191230.PSX_ITCH_50` (1.2 GB)                                        |
-| MD5sum (gz)    | `0010c0ef456bdd0bfdb14cccf5a45ba2`                                     |
+| MD5sum (gz)    | `0013c0ef456bdd0bfdb14cccf5a45ba2`                                     |
+385f6c64b06abeef47bcea4a26d9be7a  data/20191230.PSX_ITCH_50
+2d9d1238e4589dfac52e278658dfece9  tests/fixture/psx200k.bin
 
 ## Headline – NASDAQ TotalView-ITCH 5.0 (2019-12-30)
 | Item             | Value                                                                 |
