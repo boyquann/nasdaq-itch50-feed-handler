@@ -12,6 +12,10 @@ add_compile_options(
 	-Werror
 )
 
+add_compile_definitions(
+	_DEFAULT_SOURCE
+)
+
 add_library(
 	itch
 	STATIC
