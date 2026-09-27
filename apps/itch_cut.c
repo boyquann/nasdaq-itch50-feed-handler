@@ -67,7 +67,7 @@ int main(int argc, char *argv[])
 		if ((bytes_read = fread(len_buf, sizeof(len_buf[0]), LEN_PREFIX, fp)) < LEN_PREFIX) {
 			if (bytes_read == 1) {
 				if (feof(fp)) {
-					fprintf(stderr, "error: truncated prefix at off %zu\n", off);
+					fprintf(stderr, "error: truncated prefix at ofsetf %zu\n", off);
 					return fail_cleanup(fp, out, tmp);
 				} else {
 					fprintf(stderr, "error: read error\n");
@@ -85,10 +85,11 @@ int main(int argc, char *argv[])
 			
 		uint16_t len = load_be16(len_buf);
 
-                if (len == 0) {
-                        fprintf(stderr, "error: zero-byte length at offset %zu\n", off);
+		if (len == 0) {
+			fprintf(stderr, "error: zero-byte length at offset %zu\n", off);
                         return fail_cleanup(fp, out, tmp);
-                }
+		}
+	
 
 		if ((bytes_read = fread(msg, sizeof(msg[0]), len, fp)) < len) {
 			if (feof(fp)) {
@@ -147,9 +148,7 @@ int main(int argc, char *argv[])
 	}
 
 	fprintf(stderr, "Cut %ld messages (%zu bytes)\n", count, off);
-
 	fclose(fp);
-
 	return 0;
 }
 
