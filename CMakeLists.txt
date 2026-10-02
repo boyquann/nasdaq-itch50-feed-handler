@@ -100,3 +100,18 @@ target_link_libraries(
 	PRIVATE
 	itch
 )
+
+add_executable(
+	test_byteorder tests/unit/test_byteorder.c
+)
+
+target_link_libraries(
+	test_byteorder
+	PRIVATE
+	itch
+)
+
+add_test(
+	NAME byteorder
+	COMMAND test_byteorder
+)
